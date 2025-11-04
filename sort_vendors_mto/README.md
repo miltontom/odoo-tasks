@@ -1,1 +1,1 @@
-Pick the best vendor for the PO created by the MTO and Buy route.
+Pick the vendor with the least price and delivery lead time for the PO created by the MTO and Buy route.
