@@ -1,0 +1,1 @@
+- When confirming a sale order and creating an invoice, instead of having the wizard open up, directly create a draft invoice
