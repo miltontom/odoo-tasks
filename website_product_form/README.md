@@ -1,3 +1,0 @@
-- Add a new page to create a product with it's name, price and image
-- The product should be available in the website eCommerce
-- Optionally redirect to the shop page
