@@ -1,1 +1,1 @@
-Tasks there were given to completed in quick succession
+Tasks there were given to be completed in quick succession
