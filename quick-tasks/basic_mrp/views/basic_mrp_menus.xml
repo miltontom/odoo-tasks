@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="basic_mrp_menu_root"
+              name="Basic MRP" />
+    
+    <menuitem id="basic_mrp_menu_manufacturing"
+              name="Manufacturing"
+              parent="basic_mrp_menu_root"
+              sequence="1" />
+    <menuitem id="basic_mrp_manufacturing_submenu_manufacturing_orders"
+              name="Manufacturing Orders"
+              parent="basic_mrp_menu_manufacturing"
+              action="basic_mrp_action" />
+    <menuitem id="basic_mrp_manufacturing_submenu_bom"
+              name="Bill of Materials"
+              parent="basic_mrp_menu_manufacturing"
+              action="basic_bom_action" />
+</odoo>

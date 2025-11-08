@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="basic_bom_component_view_list"
+            model="ir.ui.view">
+        <field name="name">basic.bom.component.view.list</field>
+        <field name="model">basic.bom.component</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="product_id" />
+                <field name="quantity" />
+            </list>
+        </field>
+    </record>
+</odoo>

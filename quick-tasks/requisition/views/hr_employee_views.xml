@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_employee_form"
+            model="ir.ui.view">
+        <field name="name">view.employee.form.inherit.requisition</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id"
+               ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_requisition_request"
+                        type="object"
+                        string="Requisition Request" />
+            </xpath>
+            <xpath expr="//group[@name='managers']"
+                   position="inside">
+                <field name="requisition_dept_manager" />
+                <field name="requisition_head" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

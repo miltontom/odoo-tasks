@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="basic_mrp_action"
+            model="ir.actions.act_window">
+        <field name="name">Manufacturing Orders</field>
+        <field name="res_model">basic.mrp</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="basic_mrp_view_list"
+            model="ir.ui.view">
+        
+        <field name="name">basic.mrp.view.list</field>
+        <field name="model">basic.mrp</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="product_id" />
+                <field name="quantity" />
+            </list>
+        </field>
+    </record>
+
+    <record id="basic_mrp_view_form"
+            model="ir.ui.view">
+        
+        <field name="name">basic.mrp.view.form</field>
+        <field name="model">basic.mrp</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm"
+                            type="object" class="btn-primary"
+                            invisible="state in ['wait_for_qtys', 'done']" />
+                    <button name="action_produce" string="Proceed"
+                            type="object" class="btn-secondary"
+                            invisible="state in ['draft', 'done']" />
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,done" />
+                </header>
+                
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object"
+                                icon="fa-credit-card"
+                                name="action_view_created_purchase_orders"
+                                invisible="purchase_order_count == 0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="purchase_order_count" />
+                                </span>
+                                <span class="o_stat_text">Purchases</span>
+                            </div>
+                        </button>
+                    </div>
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group>
+                        <field name="product_id" />
+                        <field name="quantity" />
+                        <field name="bom_id" string="Bill of Material" />
+                    </group>
+                    <group string="Components" />
+                    <field name="component_ids" nolabel="1" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

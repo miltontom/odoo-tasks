@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="requisition_request_menu_root"
+              name="Requisitions" />
+
+    <menuitem id="requisition_request_menu_requisitions"
+              name="Requisitions"
+              parent="requisition_request_menu_root"
+              sequence="1" />
+    <menuitem id="requisition_request_menu_requisition_requests"
+              name="Requisitions"
+              parent="requisition_request_menu_requisitions"
+              action="request_requisition_action" />
+</odoo>

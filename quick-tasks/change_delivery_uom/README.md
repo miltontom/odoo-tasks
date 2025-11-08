@@ -1,0 +1,2 @@
+- Add a new field to product form `delivery_uom`
+- When enabling the boolean field in the sale order form and confirming a sale order, the created delivery order line should have the converted quantity based on the product's `delivery_uom`, not the default.

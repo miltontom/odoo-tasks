@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="module_category_requisition"
+            model="ir.module.category">
+        <field name="name">Requisition</field>
+        <field name="description">Manage requisition requests</field>
+    </record>
+
+    <record id="requisition_group_manager"
+            model="res.groups">
+        <field name="name">
+                Manager
+        </field>
+        <field name="category_id"
+               ref="module_category_requisition" />
+    </record>
+
+    <record id="requisition_group_head"
+            model="res.groups">
+        <field name="name">
+            Head
+        </field>
+        <field name="category_id"
+               ref="module_category_requisition" />
+        <field name="implied_ids"
+               eval="[Command.link(ref('requisition_group_manager'))]" />
+    </record>
+</odoo>

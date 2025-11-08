@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="product_location_qty"
+              inherit_id="website_sale.products_item"
+              name="Product Description">
+        <xpath expr="//*[hasclass('o_wsale_products_item_title')]"
+               position="inside">
+            <div>
+                <span t-field="product.ws_location_product_qty" />
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

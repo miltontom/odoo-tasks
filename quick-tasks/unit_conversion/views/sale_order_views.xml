@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.view.form.inherit.unit_conversion</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id"
+               ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']"
+                   position="after">
+                <field name="quantity" />
+                <field name="from_unit" />
+                <field name="to_unit" />
+                <div class="o_row">
+                    <button name="action_convert_quantity"
+                            type="object" string="Convert"
+                            class="oe_link oe_inline" />
+                    <field name="converted_quantity"
+                           class="oe_inline" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
