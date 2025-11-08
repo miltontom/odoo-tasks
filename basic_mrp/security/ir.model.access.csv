@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_basic_mrp,basic.mrp,model_basic_mrp,base.group_user,1,1,1,1
+access_basic_mrp_component,basic.mrp.component,model_basic_mrp_component,base.group_user,1,1,1,1
+access_basic_bom,basic.bom,model_basic_bom,base.group_user,1,1,1,1
+access_basic_bom_component,basic.bom.component,model_basic_bom_component,base.group_user,1,1,1,1
+
+

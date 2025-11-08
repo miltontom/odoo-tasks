@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="basic_bom_action"
+            model="ir.actions.act_window">
+        <field name="name">Bill of Materials</field>
+        <field name="res_model">basic.bom</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="basic_bom_view_list"
+            model="ir.ui.view">
+        
+        <field name="name">basic.bom.view.list</field>
+        <field name="model">basic.bom</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="product_id" />
+                <field name="quantity" />
+            </list>
+        </field>
+    </record>
+
+    <record id="basic_bom_view_form"
+            model="ir.ui.view">
+        
+        <field name="name">basic.bom.view.form</field>
+        <field name="model">basic.bom</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id" />
+                        <field name="quantity" />
+                        <field name="component_ids" nolabel="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

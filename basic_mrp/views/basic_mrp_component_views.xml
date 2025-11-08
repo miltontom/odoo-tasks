@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="basic_mrp_component_view_list"
+            model="ir.ui.view">
+        <field name="name">basic.mrp.component.view.list</field>
+        <field name="model">basic.mrp.component</field>
+        <field name="arch" type="xml">
+            <list editable="bottom"
+                  decoration-danger="not is_quantity_available"
+                  decoration-success="is_quantity_available">
+                <field name="product_id" />
+                <field name="quantity" />
+            </list>
+        </field>
+    </record>
+</odoo>
