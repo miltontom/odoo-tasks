@@ -1,0 +1,2 @@
+- Restrict users in sale
+- Restrict users (except Sales Manager) from confirming a sale order if the total exceeds ₹50,000.
