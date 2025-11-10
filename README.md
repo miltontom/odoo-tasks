@@ -4,7 +4,7 @@ This is a list of tasks from basic to advanced that were assigned to me as part 
 
 1. Python
 2. CSS & JQuery
-3. PSQL
+3. [PSQL](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/psql)
 4. Odoo Functionals
 5. [Odoo Basic](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/basics)
 6. [Odoo Advanced](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/advanced)
