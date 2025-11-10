@@ -1,0 +1,2 @@
+- Prevent duplicate vendor bills by vendor+number+amount:
+- If a vendor bill with same Vendor, Vendor Ref, and Total exists in posted/draft, block posting.
