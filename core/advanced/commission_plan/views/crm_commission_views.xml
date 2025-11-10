@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_commission_action"
+            model="ir.actions.act_window">
+        
+        <field name="name">Commission</field>
+        <field name="res_model">crm.commission</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="crm_commission_view_list"
+            model="ir.ui.view">
+        <field name="name">crm.commission.list</field>
+        <field name="model">crm.commission</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="commission_type" />
+                <field name="date_from" />
+                <field name="date_to" />
+            </list>
+        </field>
+    </record>
+
+    <record id="crm_commission_view_form"
+            model="ir.ui.view">
+        
+        <field name="name">crm.commission.form</field>
+        <field name="model">crm.commission</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="name"
+                               placeholder="Commission Name" />
+                    </h1>
+                    <group>
+                        <label for="date_from" string="Validity" />
+                        <div class="row">
+                            <field name="date_from" widget="daterange"
+                                   class="oe_inline"
+                                   options="{'end_date_field': 'date_to'}" />
+                        </div>
+                        <field name="commission_type" widget="radio" />
+                        <field name="commission_product_ids"
+                               nolabel="1"
+                               invisible="commission_type != 'product'">
+                            <list editable="bottom">
+                                <field name="product_id" />
+                                <field name="categ_id" />
+                                <field name="max_amount" />
+                                <field name="percent_rate" />
+                            </list>
+                        </field>
+                        <field name="commission_revenue_type"
+                               invisible="commission_type != 'revenue'"
+                               style="max-width: 10rem" />
+                        <field name="percent_rate"
+                               invisible="(commission_type != 'revenue' and commission_type != 'straight') or commission_revenue_type != 'straight'" />
+                        <field name="min_amount"
+                               invisible="commission_revenue_type != 'graduated' or commission_type != 'revenue'" />
+                        <div class="row"
+                             invisible="commission_revenue_type != 'graduated' or commission_type != 'revenue'">
+                            <field name="percent_rate_first" class=""
+                                   style="max-width: 4.5rem" />% for sale less than
+                            <field name="min_amount" class="me-3"
+                                   style="max-width: 8rem !important"
+                                   readonly="1" />
+                        </div>
+                        <newline  />
+                        <div class="row"
+                             invisible="commission_revenue_type != 'graduated' or commission_type != 'revenue'">
+                            <field name="percent_rate_second"
+                                   style="max-width: 4.5rem" />% for sale greater than
+                            <field name="min_amount"
+                                   style="max-width: 8rem" readonly="1"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

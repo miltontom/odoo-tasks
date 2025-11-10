@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem id="crm_commission_submenu"
+              name="Commissions"
+              parent="crm.crm_menu_config"
+              sequence="7"
+              action="crm_commission_action" />
+</odoo>

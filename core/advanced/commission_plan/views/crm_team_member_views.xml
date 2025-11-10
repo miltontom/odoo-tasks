@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="crm_team_member_view_form"
+            model="ir.ui.view">
+        <field name="name">crm.team.member.view.form.commission_plan</field>
+        <field name="model">crm.team.member</field>
+        <field name="inherit_id"
+               ref="sales_team.crm_team_member_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_owner']">
+                <field name="commission_id"
+                       string="Commission Type" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

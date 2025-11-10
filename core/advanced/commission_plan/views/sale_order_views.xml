@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">view.order.form.inherited.commission_plan</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id"
+               ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tax_totals']"
+                   position="after">
+                <div class="d-flex float-end" colspan="2"
+                     groups="base.group_user">
+                    <label for="salesperson_commission"
+                           string="Commission" />
+                    <div>
+                        <field name="salesperson_commission"
+                               class="oe_inline" />
+                        <!-- <field name="amount_untaxed" invisible="1" />
+                        <span class="oe_inline"
+                              invisible="amount_untaxed == 0">
+                            (
+                            <field name="margin_percent" nolabel="1"
+                                   class="oe_inline" widget="percentage" />)
+                        </span> -->
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
