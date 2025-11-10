@@ -1,0 +1,57 @@
+th {
+    background-color: #04AA6D;
+    color: white;
+}
+
+table, th, td {
+    margin-top: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+input[type="text"] {
+    font-size: 100%;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+
+.inputForm {
+    margin-top: 50px !important;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.tableWrapper {
+    text-align: center !important;
+    margin-top: 50px;
+}
+
+.candidatesTable {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+}
+
+.voting {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#multiselect-delete-btn {
+    margin-top: 20px !important;
+}
+
+button {
+    color: black !important;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    height: 45px;
+    background-color: rgb(209, 207, 207) !important;
+}
