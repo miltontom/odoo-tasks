@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_custom_popup.popup">
+        <Dialog title="props.title">
+            <p t-out="props.body" class="text-prewrap"/>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary o-default-button" t-on-click="confirm">Ok</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

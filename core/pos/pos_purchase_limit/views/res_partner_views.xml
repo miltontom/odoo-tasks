@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_smart_button">
+            <field name="name">res.partner.purchaselimit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='point_of_sale']" position="inside">
+                    <field name="activate_purchase_limit" widget="boolean_toggle" invisible="not customer_purchase_limit"/>
+                    <field name="purchase_limit_amount" invisible="not (activate_purchase_limit and customer_purchase_limit)"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
