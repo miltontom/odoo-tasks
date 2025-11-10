@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="attendance_root" name="Attendance"/>
+    <menuitem id="attendance_menu" name="Employees" parent="attendance_root"/>
+    <menuitem id="attendance_submenu" name="Absentees" parent="attendance_menu" action="attendance_action"/>
+</odoo>
