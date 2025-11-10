@@ -1,0 +1,1 @@
+Add two field 1) Restricted Boolean 2) Restricted count (this will be only visible when restricted boolean is true).While adding this restricted enabled (true) vendor on the purchase order based on the restricted count, in the PO, user can only add that much order lines.
