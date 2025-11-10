@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="multi_so_inv_root" name="Multi SO Invoice"/>
+
+    <menuitem id="multi_so_inv_menu" name="Invoices" parent="multi_so_inv_root"/>
+    <menuitem id="multi_so_inv_menu_invoices"
+              name="SO Invoices"
+              parent="multi_so_inv_menu"
+              action="multi_so_inv_action"/>
+</odoo>

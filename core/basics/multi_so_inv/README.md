@@ -1,0 +1,2 @@
+- Add new field Related SO to invoice. It can select multiple sales orders which are not invoiced
+- Selected Sales Order's Order lines should be added to the invoice lines
