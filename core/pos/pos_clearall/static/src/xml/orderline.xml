@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderLine" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ul/li[1]/t[2]" position="after">
+            <t t-if="props.class.selected">
+                <button t-on-click="this.onClickDelete" style="position: absolute; bottom: 0; right: 0; border: none; font-size: 20px; color: tomato; background-color: transparent;"><i class="fa fa-trash-o"/></button>
+            </t>
+        </xpath>
+    </t>
+</templates>

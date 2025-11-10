@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="ControlButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t/button[2]" position="after">
+            <button t-if="this.pos.get_order().lines.length"
+                    class="control-button btn btn-light rounded"
+                    style="font-size: 17.5px; color: #ff4d4d"
+                    t-on-click="() => this.onClickClearAll()">
+                <i class="fa fa-trash-o"/> Clear
+            </button>
+        </xpath>
+    </t>
+</templates>
