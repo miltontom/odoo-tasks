@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="payment_line_view_list"
+            model="ir.ui.view">
+        <field name="name">payment.line.view.list</field>
+        <field name="model">payment.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="payment_method_id" />
+                <field name="amount_paid" />
+            </list>
+        </field>
+    </record>
+</odoo>
