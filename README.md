@@ -6,13 +6,13 @@ This is a list of tasks from basic to advanced that were assigned to me as part 
 2. CSS & JQuery
 3. PSQL
 4. Odoo Functionals
-5. Odoo Basic
-6. Odoo Advanced
-7. Odoo Reporting
-8. Website
-9. POS
-10. Integration
-11. Client-Level
-12. OWL
+5. [Odoo Basic](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/basics)
+6. [Odoo Advanced](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/advanced)
+7. [Odoo Reporting](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/basics/vehicle_repair)
+8. [Website](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/basics/vehicle_repair)
+9. [POS](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/pos)
+10. [Integration](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/integration)
+11. [Client-Level](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/client-level)
+12. [OWL](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/owl)
 13. App or Client
-14. Quick Tasks
+14. [Quick Tasks](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/quick-tasks)
