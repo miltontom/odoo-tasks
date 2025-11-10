@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="survey_idle_time" model="ir.ui.view">
+        <field name="name">survey.idle.time</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id"
+               ref="survey.survey_survey_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scoring_type']"
+                   position="before">
+                <label for="per_question_time_limit"
+                       string="Question Time Limit"
+                       invisible="survey_type == 'live_session' or questions_layout != 'page_per_question' or is_time_limited" />
+                <div class="o_checkbox_optional_field"
+                     invisible="survey_type == 'live_session' or questions_layout != 'page_per_question' or is_time_limited">
+                    <field name="per_question_time_limit"
+                           nolabel="1" />
+                    <div invisible="not per_question_time_limit">
+                        <field name="question_time_limit_seconds"
+                               class="oe_inline" /> seconds
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

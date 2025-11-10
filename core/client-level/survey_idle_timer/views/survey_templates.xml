@@ -1,0 +1,26 @@
+<odoo>
+
+    <template inherit_id="survey.survey_fill_form"
+              id="survey_fill_form_inherit">
+        <xpath expr="//form" position="attributes">
+            <attribute name="t-att-data-per-question-time-limit">survey.per_question_time_limit</attribute>
+            <attribute name="t-att-data-question-time-limit-seconds">survey.question_time_limit_seconds</attribute>
+        </xpath>
+    </template>
+
+    <template inherit_id="survey.survey_fill_form_start"
+              id="survey_fill_form_start_inherit">
+        <xpath expr="//button[@type='submit']"
+               position="before">
+            <div t-if="survey.per_question_time_limit">
+                <p>
+                    <span>Each question is limited to</span>
+                    <span class="fw-bold text-danger"
+                          t-field="survey.question_time_limit_seconds"
+                          t-options="{'widget': 'duration', 'unit': 'second'}" />
+                    <span>, Make each second count :)</span>
+                </p>
+            </div>
+        </xpath>
+    </template>
+</odoo>
