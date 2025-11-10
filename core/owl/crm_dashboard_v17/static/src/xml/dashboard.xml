@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="dashboard_template" owl="1">
+        <div class="bg-muted vh-100 overflow-auto">
+            <div class="row m-3">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col m-0 p-0 overflow-auto">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">
+                                        <blockquote>
+                                            "Your most unhappy customers are your greatest source of learning." -
+                                            <span style="color: orange;">Bill Gates</span>
+                                        </blockquote>
+                                    </h3>
+                                    <div>
+                                        <select class="form-select"
+                                                t-model="state.period"
+                                                t-on-change="onChangePeriod">
+                                            <option value="0">Select Period</option>
+                                            <option value="365">This Year</option>
+                                            <option value="90">This Quarter</option>
+                                            <option value="30">This Month</option>
+                                            <option value="7">This Week</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Cards -->
+                        <Card name="'My Leads'"
+                              value="state.leads.value"
+                              onClick.bind="viewLeads" />
+                        <Card name="'My Opportunities'"
+                              value="state.opportunities.value"
+                              onClick.bind="viewOpportunities" />
+                        <Card name="'Expected Revenue'"
+                              value="state.expectedRevenue.value"
+                              onClick.bind="viewExpectedRevenue" />
+                        <Card name="'Revenue'"
+                              value="state.revenue.value"
+                              onClick.bind="viewRevenue" />
+                        <Card name="'Win/Loss Ratio'"
+                              value="state.wonLostOpp.value"
+                              onClick.bind="viewWinLossOpp" />
+                    </div>
+                    <div class="row">
+                        <!-- Leads by medium (doughnut) -->
+                        <div class="col-lg-5 m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Leads By Medium</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer"
+                                         t-on-click="viewLeadsByMedium">
+                                        <span class="fa fa-arrow-right text-white" />
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'doughnut'"
+                                               t-props="{data: state.charts.leadsByMedium}" />
+                            </div>
+                        </div>
+
+                        <!-- Activity (pie chart) -->
+                        <div class="col-lg-5 m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Activity</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer"
+                                         t-on-click="viewActivities">
+                                        <span class="fa fa-arrow-right text-white" />
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'pie'"
+                                               t-props="{data: state.charts.activities}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <!-- Leads by month (table) -->
+                        <div class="col-lg-6 m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Leads By Month</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer"
+                                         t-on-click="viewLeadsByMonth">
+                                        <span class="fa fa-arrow-right text-white" />
+                                    </div>
+                                </div>
+                                <div class="overflow-auto">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Jan</th>
+                                                <th>Feb</th>
+                                                <th>Mar</th>
+                                                <th>Apr</th>
+                                                <th>May</th>
+                                                <th>Jun</th>
+                                                <th>Jul</th>
+                                                <th>Aug</th>
+                                                <th>Sep</th>
+                                                <th>Oct</th>
+                                                <th>Nov</th>
+                                                <th>Dec</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <t t-foreach="state.charts.leadsByMonth"
+                                                   t-as="row" t-key="row.label">
+                                                    <td class="text-center">
+                                                        <t t-if="row.count > 0">
+                                                            <span t-out="row.count" />
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span>-</span>
+                                                        </t>
+                                                    </td>
+                                                </t>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leads by campaign -->
+                        <div class="col-lg-4 m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Leads By Campaign</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer"
+                                         t-on-click="viewLeadsByCampaign">
+                                        <span class="fa fa-arrow-right text-white" />
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'pie'"
+                                               t-props="{data: state.charts.leadsByCampaign}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Lost oppurtunity/Lead (graph) -->
+                        <div class="col-lg-10 m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white rounded-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Lost Oppurtunity/Lead</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer"
+                                         t-on-click="viewLostLeadOpp">
+                                        <span class="fa fa-arrow-right text-white" />
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'line'"
+                                               t-props="{data: state.charts.lostLeadsOpps}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

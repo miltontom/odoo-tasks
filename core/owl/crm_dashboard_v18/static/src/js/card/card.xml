@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="crm_dashboard.Card" owl="1">
+        <div class="col-lg-3 m-0 p-0">
+            <div class="shadow-sm border m-2 p-4 bg-white text-center cursor-pointer rounded-4" t-on-click="() => props.onClick()">
+                <div class="h1 fw-bold text-dark"
+                     style="font-size: 32px">
+                    <t t-if="props.name == 'Win/Loss Ratio'">
+                        <span class="fa fa-thumbs-up text-success" />
+                        <span t-esc="props.value" />
+                        <span class="fa fa-thumbs-down text-danger" />
+                    </t>
+                    <t t-else="">
+                        <span t-esc="props.value" />
+                    </t>
+                </div>
+                <div class="h3 text-muted">
+                    <span t-esc="props.name" />
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
