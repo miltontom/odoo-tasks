@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="so_partner_project"
+            model="ir.ui.view">
+        <field name="name">so.partner.project</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id"
+               ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='partner_details']"
+                   position="inside">
+                <field name="partner_project_id" />
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_create_task" type="object"
+                        string="Create Task"
+                        invisible="not (state == 'sale' and partner_project_id and project_empty)" />
+            </xpath>
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_created_task"
+                        icon="fa-check"
+                        invisible="not (state == 'sale' and partner_project_id and not project_empty)">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">
+                            <span>1 Task and </span>
+                            <field name="subtask_count" />
+                            <span> Sub-tasks </span>
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

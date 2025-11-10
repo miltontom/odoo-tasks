@@ -1,0 +1,6 @@
+- Add Project Field: Add a "Project" field to the sale order form. Show only projects belonging to the selected customer.
+- Create Tasks Button: Add a "Create Tasks" button that is visible only when the order is confirmed AND a project is selected AND tasks haven't been created yet.
+- Main Task Creation: When button is clicked, create a main task in the selected project with name "SO/{order_number} - {customer_name}", description containing order details, and assigned to the salesperson.
+- Subtasks from Order Lines: For each order line, create a subtask under the main task with name "{product_name} - Qty: {quantity}". add priority using Large order line amount.
+- Task Tracking: Add a smart button to view all related tasks.
+- Prevent Duplicates: Add validation to prevent creating tasks multiple times for the same order. Show appropriate error messages.
