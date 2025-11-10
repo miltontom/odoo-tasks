@@ -1,0 +1,2 @@
+- create a timeoff type that allows employees to take excess leaves beyond their allocation.
+- next time an allocation is made the excess leaves are deducted from the allocation.
