@@ -3,7 +3,7 @@ This is a list of tasks from basic to advanced that were assigned to me as part 
 # Roadmap
 
 1. Python
-2. CSS & JQuery
+2. [CSS & JQuery](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/css-and-jquery)
 3. [PSQL](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/psql)
 4. Odoo Functionals
 5. [Odoo Basic](https://github.com/miltontom/cybrosys-training-period-tasks/tree/main/core/basics)
