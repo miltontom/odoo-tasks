@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="systray_icon">
+        <Dropdown position="'bottom-end'" state="dropdown">
+            <button style="background: transparent; border: none">
+                <i class="fa fa-cloud" role="img"
+                   title="Weather"
+                   style="font-size: 18px; color: white" />
+            </button>
+            <t t-set-slot="content">
+                <div class="p-3">
+                    <span>
+                        <t t-out="this.date" />
+                    </span>
+                    <h1 class="fw-bold">
+                        <t t-esc="this.temp" /> &#8451; 
+                        <t t-esc="this.description_main" />
+                    </h1>
+                    <span>
+                        <t t-out="this.description" /> in 
+                        <t t-out="this.city" />
+                    </span>
+                </div>
+            </t>
+        </Dropdown>
+    </t>
+</templates>
