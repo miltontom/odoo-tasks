@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension" owl="1">
+        <xpath expr="//article" position="inside">
+            <div class="product-quantity-tag" style="position: absolute; left: 0; top: 0; font-weight: bold; font-size: 13px; padding: 4px; background-color: lightgrey; border-bottom-right-radius: 8px; box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3)">
+                <t t-if="true">
+                    <span><t t-esc="props.qty"/></span>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>
