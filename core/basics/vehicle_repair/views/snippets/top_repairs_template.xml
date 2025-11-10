@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="content_snippet" name="Content snippet">
+        <section class="top-repairs container">
+            <h3 class="h3 mt-5">Top Vehicle Repairs</h3>
+            <div class="container">
+                <div class="custom-snippet-container mt-5">
+                    <div class="row column-gap-3">
+                        <div class="custom-snippet-item card mb-3 w-25 col">
+                            <div class="card-body">
+                                <h5 class="card-title">RO
+                                </h5>
+                                <p class="card-text">
+                                    Customer
+                                </p>
+                            </div>
+                        </div>
+                        <div class="custom-snippet-item card mb-3 w-25 col">
+                            <div class="card-body">
+                                <h5 class="card-title">RO
+                                </h5>
+                                <p class="card-text">
+                                    Customer
+                                </p>
+                            </div>
+                        </div>
+                        <div class="custom-snippet-item card mb-3 w-25 col">
+                            <div class="card-body">
+                                <h5 class="card-title">RO
+                                </h5>
+                                <p class="card-text">
+                                    Customer
+                                </p>
+                            </div>
+                        </div>
+                        <div class="custom-snippet-item card mb-3 w-25 col">
+                            <div class="card-body">
+                                <h5 class="card-title">RO
+                                </h5>
+                                <p class="card-text">
+                                    Customer
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="content_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-selector="#snippet_selector" data-js="ContentSnippet">
+                <we-row string="Item">
+                    <we-button data-add-item="true" data-no-preview="true"
+                               class="add_content_item o_we_bg_brand_primary">Add Item
+                    </we-button>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+</odoo>

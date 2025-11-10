@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="repair_requests_page">
+        <t t-call="website.layout">
+            <div class="container">
+                <table class="table table-striped mt-5 mb-5">
+                    <thead>
+                        <tr>
+                            <td class="fw-bold">Repair Order</td>
+                            <td class="fw-bold">Customer</td>
+                            <td class="fw-bold">Service Advisor</td>
+                            <td class="fw-bold">Model Category</td>
+                            <td class="fw-bold">Model</td>
+                            <td class="fw-bold">Vehicle Number</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="records" t-as="rec">
+                            <tr>
+                                <td><t t-out="rec.name"></t></td>
+                                <td><t t-out="rec.name_id.name"></t></td>
+                                <td><t t-out="rec.service_advisor_id.name"></t></td>
+                                <td><t t-out="rec.vehicle_type_id.name"></t></td>
+                                <td><t t-out="rec.vehicle_model_id.name"></t></td>
+                                <td><t t-out="rec.vehicle_number"></t></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <a href="/odoo/website" class="btn btn-primary mb-3">Back</a>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="vehicle_repair_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-if="customer_len == 1">
+                        <h5>
+                            <strong>Customer:</strong>
+                            <span t-out="customer"/>
+                        </h5>
+                    </t>
+                    <t t-if="service_adv_len == 1">
+                        <h5>
+                            <strong>Service Advisor:</strong>
+                            <span t-out="service_advisor"/>
+                        </h5>
+                    </t>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th t-if="customer_len > 1 or customer_len == 0" class="fw-bold">Customer</th>
+                                <th t-if="service_adv_len > 1 or service_adv_len == 0" class="fw-bold">Service Advisor</th>
+                                <th class="fw-bold">Model</th>
+                                <th class="fw-bold">Type</th>
+                                <th class="fw-bold">Vehicle No.</th>
+                                <th class="fw-bold">Service Type</th>
+                                <th class="fw-bold">Start Date</th>
+                                <th class="fw-bold">End Date</th>
+                                <th class="fw-bold">State</th>
+                                <th class="fw-bold">Estimated Amount</th>
+                                <th class="fw-bold">Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="d">
+                                <tr>
+                                    <td t-if="customer_len > 1 or customer_len == 0">
+                                        <span t-esc="d.get('customer')"/>
+                                    </td>
+                                    <td t-if="service_adv_len > 1 or service_adv_len == 0">
+                                        <span t-esc="d.get('service advisor')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('vehicle category')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('vehicle model')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('vehicle number')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('service type')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('start date')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('delivery date')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('state')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.get('estimated_amount')"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="d.get('service type') == 'paid'">
+                                            <span t-out="d.get('total amount')"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

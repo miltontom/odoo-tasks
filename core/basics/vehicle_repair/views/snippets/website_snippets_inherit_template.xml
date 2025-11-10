@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Snippets inherit  menu -->
+    <template id="inherit_snippets" inherit_id="website.snippets">
+        <xpath expr="//snippets[@id='snippet_groups']//t[@snippet-group][last()]" position="before">
+            <t t-snippet="vehicle_repair.content_snippet"
+               string="Top Vehicle Repairs"
+               t-thumbnail="/website/static/src/img/snippets_thumbs/s_three_columns.svg">
+                <keywords>hero, jumbotron</keywords>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

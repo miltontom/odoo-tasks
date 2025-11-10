@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="vehicle_repair_report_action" model="ir.actions.report">
+        <field name="name">Vehicle Repair Action</field>
+        <field name="model">vehicle.repair</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">vehicle_repair.vehicle_repair_report_template</field>
+        <field name="report_file">vehicle_repair.vehicle_repair_report_template</field>
+        <field name="print_report_name">vehicle_repairs</field>
+        <field name="binding_model_id" ref="vehicle_repair.model_vehicle_repair"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
+

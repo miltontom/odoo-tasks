@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="duplicate_record_error">
+        <t t-call="website.layout">
+            <div class="container">
+                <h3 class="mb-3 mt-3">Whoops... seems like a record already exists :(</h3>
+            </div>
+        </t>
+    </template>
+</odoo>

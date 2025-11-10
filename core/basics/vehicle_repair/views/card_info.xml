@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="card_info">
+        <t t-call="website.layout">
+            <div class="container">
+                <t t-if="record.image">
+                    <img t-att-src="image_data_uri(record.image)" height="180px" class="mt-3"/>
+                </t>
+                <t t-if="record.image == false">
+                    <img src="./placeholder.png" alt="..." class="mt-3"/>
+                </t>
+                <h3 class="h2 mb-3 mt-3"><t t-out="record.name"/></h3>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <td class="fw-bold">
+                            Customer
+                        </td>
+                        <td>
+                            <t t-out="record.name_id.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Service Advisor
+                        </td>
+                        <td>
+                            <t t-out="record.service_advisor_id.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Vehicle Model Category
+                        </td>
+                        <td>
+                            <t t-out="record.vehicle_type_id.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Vehicle Model
+                        </td>
+                        <td>
+                            <t t-out="record.vehicle_model_id.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Vehicle Number
+                        </td>
+                        <td>
+                            <t t-out="record.vehicle_number"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Start Date
+                        </td>
+                        <td>
+                            <t t-out="record.start_date"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            End Date
+                        </td>
+                        <td>
+                            <t t-if="record.start_date">
+                                <t t-out="record.delivery_date"/>
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">
+                            Total Amount
+                        </td>
+                        <td>
+                            <t t-out="record.total_labor_cost + record.total_consumed_parts"/>
+                        </td>
+                    </tr>
+                </table>
+                <a href="/odoo/website" class="btn btn-primary mb-3">Back</a>
+            </div>
+        </t>
+    </template>
+</odoo>

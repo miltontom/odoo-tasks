@@ -1,0 +1,9 @@
+<odoo>
+    <data noupdate="1">
+        <!-- change id if any updations are needed-->
+        <record id="labor_cost_prod" model="product.product">
+            <field name="name">Labor Cost</field>
+            <field name="type">service</field>
+        </record>
+    </data>
+</odoo>

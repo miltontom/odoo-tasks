@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="create_report_view_form" model="ir.ui.view">
+        <field name="name">create.report.form.view</field>
+        <field name="model">create.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="customer_ids" widget="many2many_avatar_user"/>
+                    <field name="service_advisor_ids" widget="many2many_avatar_user"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+                <footer>
+                    <button name="action_create_report" string="PDF" type="object" class="btn-primary"/>
+                    <button name="action_create_report_xlsx" string="XLSX" type="object" class="btn-primary"/>
+                    <button name="cancel" string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="create_report_action" model="ir.actions.act_window">
+        <field name="name">Create Report</field>
+        <field name="res_model">create.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="vehicle_repair.create_report_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

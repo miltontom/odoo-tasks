@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_repair,access.vehicle.repair,model_vehicle_repair,base.group_user,1,1,1,1
+access_tag,access.tag,model_tag,base.group_user,1,1,1,1
+access_labor_cost,access.labor.cost,model_labor_cost,base.group_user,1,1,1,1
+access_consumed_part,access.consumed.part,model_consumed_part,base.group_user,1,1,1,1
+access_create_report_wizard,access.create.report.wizard,model_create_report_wizard,base.group_user,1,1,1,1

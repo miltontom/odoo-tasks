@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="vehicle_repair_menu_root" name="Vehicle Repair"/>
+
+    <menuitem id="vehicle_repair_menu_management" name="Management" parent="vehicle_repair_menu_root" sequence="1"/>
+    <menuitem id="vehicle_repair_menu_management_section" name="One" parent="vehicle_repair_menu_management"/>
+    <menuitem id="vehicle_repair_menu_management_repairs" name="Repairs" parent="vehicle_repair_menu_management_section" action="vehicle_repair_action"/>
+
+    <menuitem id="vehicle_repair_menu_reporting" name="Reporting" parent="vehicle_repair_menu_root" sequence="2"/>
+    <menuitem id="vehicle_repair_menu_reporting_report" name="Create Report" parent="vehicle_repair_menu_reporting" action="create_report_action"/>
+
+    <menuitem id="vehicle_repair_menu_configuration" name="Configuration" parent="vehicle_repair_menu_root" sequence="3"/>
+    <menuitem id="vehicle_repair_menu_configuration_tags" name="Tags" parent="vehicle_repair_menu_configuration" action="vehicle_repair_tag_action"/>
+</odoo>

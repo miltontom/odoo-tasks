@@ -1,0 +1,151 @@
+<!--<?xml version="1.0" encoding="utf-8" ?>-->
+<odoo>
+    <record id="vehicle_repair_action" model="ir.actions.act_window">
+        <field name="name">Repairs</field>
+        <field name="res_model">vehicle.repair</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="vehicle_repair_view_list" model="ir.ui.view">
+        <field name="name">vehicle.repair.list</field>
+        <field name="model">vehicle.repair</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="is_today" decoration-warning="is_tomorrow" decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="name_id"/>
+                <field name="service_advisor_id" widget="many2one_avatar_user"/>
+                <field name="vehicle_type_id"/>
+                <field name="vehicle_model_id"/>
+                <field name="delivery_date"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vehicle_repair_view_form" model="ir.ui.view">
+        <field name="name">vehicle.repair.form</field>
+        <field name="model">vehicle.repair</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" invisible="state != 'draft'"
+                            class="oe_highlight"/>
+                    <button name="action_create_invoice" string="Create Invoice" type="object" class="btn-primary"
+                            invisible="payment_status in ['not_paid', 'partial', 'paid', 'in_payment', 'reversed', 'cancelled', 'refunded'] or state != 'done'"/>
+                    <button name="action_ready_for_delivery" string="Ready" type="object" class="btn-secondary"
+                            invisible="state != 'in_progress'"/>
+                    <button name="action_done" string="Done" type="object" class="btn-secondary"
+                            invisible="state != 'ready_for_delivery'"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="state == 'cancelled'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_progress,done,ready_for_delivery,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoices" string="Invoice" type="object"
+                                icon="fa-pencil-square-o"
+                                invisible="not payment_status in ['not_paid', 'partial', 'paid', 'in_payment', 'reversed', 'cancelled', 'refunded']"/>
+                    </div>
+                    <group>
+                        <widget name="web_ribbon" title="paid" invisible="not payment_status == 'paid'"/>
+                        <group>
+                            <group>
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                                <field name="name_id" context="{'show_address': 1}"/>
+                                <field name="mobile"/>
+                                <field name="service_advisor_id"/>
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="estimated_delivery_date"/>
+                                <field name="delivery_date"/>
+                                <field name="company_id"/>
+                                <field name="cancelled_date" groups="base.group_no_one"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <field name="image" widget="image" options="{'size': [170, 170]}" nolabel="1"/>
+                            <field name="vehicle_type_id"/>
+                            <field name="vehicle_model_domain" invisible="1"/>
+                            <field name="vehicle_model_id" domain="vehicle_model_domain"/>
+                            <field name="vehicle_number"/>
+                            <field name="service_type" widget="radio" options="{'horizontal': 1}"/>
+                            <field name="estimated_amount"/>
+                            <!--                            only show the field in dev mode (groups="base.group_no_one")-->
+                            <field name="currency_id" invisible="1"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Complaints">
+                            <field name="complaints" placeholder="Complaints..."/>
+                        </page>
+                        <page string="Consumed Parts">
+                            <field name="consumed_part_ids" nolabel="1"/>
+                            <group>
+                                <div class="o_group row align-items-start mt-2 mt-md-0">
+                                    <div class="o_inner_group oe_subtotal_footer d-flex order-0 order-lg-1 flex-column">
+                                        <separator string="Total Amount"/>
+                                        <field name="total_consumed_parts" widget="monetary"
+                                               style="font-size: 20px; font-weight: bold"/>
+                                        <!--                                        <div class="o_inner_group grid oe_subtotal_footer d-flex order-0 order-lg-1 flex-column">-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+                        <page string="Labor Cost" invisible="service_type == 'free'">
+                            <field name="labor_cost_ids" nolabel="1"/>
+                            <group>
+                                <div class="o_group row align-items-start mt-2 mt-md-0">
+                                    <div class="o_inner_group oe_subtotal_footer d-flex order-0 order-lg-1 flex-column">
+                                        <separator string="Total Amount"/>
+                                        <field name="total_labor_cost" widget="monetary"
+                                               style="font-size: 20px; font-weight: bold"/>
+                                        <!--                                        <div class="o_inner_group grid oe_subtotal_footer d-flex order-0 order-lg-1-->
+                                        <!--                                        flex-column">-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vehicle_repair_search" model="ir.ui.view">
+        <field name="model">vehicle.repair</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_number"/>
+                <field name="name_id"/>
+                <field name="service_advisor_id"/>
+                <field name="vehicle_type_id"/>
+
+                <!-- filters -->
+                <filter string="Draft" name="state_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="In Progress" name="state_filter" domain="[('state', '=', 'in_progress')]"/>
+                <filter string="Done" name="state_filter" domain="[('state', '=', 'done')]"/>
+                <filter string="Cancelled" name="state_filter" domain="[('state', '=', 'cancelled')]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '!=', 'False')]"/>
+
+                <!-- group by filters -->
+                <filter name="customer" context="{'group_by': 'name_id'}"/>
+                <filter name="service_advisor" context="{'group_by': 'service_advisor_id'}"/>
+                <filter name="state" context="{'group_by': 'state'}"/>
+                <filter name="vehicletype" context="{'group_by': 'vehicle_type_id'}"/>
+                <group expand="1">
+                    <filter invisible="1" string="Duration" name="ascending"
+                            context="{'group_by': 'name_id', 'default_order': 'duration asc'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
