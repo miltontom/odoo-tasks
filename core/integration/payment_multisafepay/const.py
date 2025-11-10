@@ -1,0 +1,16 @@
+SUPPORTED_LOCALES = [
+    "cs_CZ",
+    "de_AT",
+    "de_DE",
+    "en_US",
+    "fi_FI",
+    "fr_BE",
+    "fr_FR",
+    "it_IT",
+    "nl_BE",
+    "nl_NL",
+    "pl_PL",
+    "es_ES",
+    "sv_SE",
+    "zh_CN",
+]

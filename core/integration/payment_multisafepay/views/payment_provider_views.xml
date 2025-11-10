@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form_multisafepay" model="ir.ui.view">
+        <field name="name">MultiSafepay Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position='inside'>
+                <group name="multisafepay_credentials"
+                       invisible="code != 'multisafepay'">
+                    <field name="multisafepay_key_secret"
+                           string="Key Secret"
+                           required="code == 'multisafepay' and state != 'disabled'"
+                           password="True"/>
+                </group>
+            </group>
+            <field name="allow_tokenization" position="after">
+                <div invisible="code != 'multisafepay' or not allow_tokenization" colspan="2">
+                    <widget class="mx-2" colspan="2" name="documentation_link" path="/applications/finance/payment_providers/razorpay.html#payment-providers-razorpay-recurring-payments" label="Enable recurring payments on Razorpay" icon="oi oi-fw o_button_icon oi-arrow-right"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+</odoo>
