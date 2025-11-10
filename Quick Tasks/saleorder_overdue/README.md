@@ -1,0 +1,5 @@
+- Add a field “Last Sales Date” on the customer (res.partner) form.
+- When confirming a Sale Order:
+- Automatically update the customer “Last Sales Date” to the SO confirmation date.
+- If the customer hasn’t been delivered anything for more than 90 days, block sale confirmation and raise a validation error.
+- Show a warning message if the sale has overdue status.

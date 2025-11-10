@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view"
+                id="sale_overdue_alert">
+            <field name="name">sale.overdue</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id"
+                   ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="after">
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not overdue">There is a 90 days overdue for the selected customer.</div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
