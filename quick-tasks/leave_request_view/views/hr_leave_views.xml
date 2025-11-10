@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_leave_application"
+            model="ir.ui.view">
+        <field name="name">hr.leave.application</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id"
+               ref="hr_holidays.hr_leave_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='col_left']"
+                   position="inside">
+                <field name="acting_person_id" />
+                <field name="is_leaving_country" />
+                <field name="backdated_reason" />
+                <field name="leave_block_exemption_reason" />
+                <field name="exit_country_block_exemption_reason" />
+                <field name="leave_reason" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
