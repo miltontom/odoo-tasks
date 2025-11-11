@@ -1,0 +1,1 @@
+Block employees from requesting leaves if they have already requested a leave within 30 days.
